@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Will You Spend Forever With Me?</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Raleway:wght@400;700&display=swap');
+        body {
+            font-family: 'Raleway', sans-serif;
+            text-align: center;
+            background: linear-gradient(135deg, #ff758c, #ff7eb3);
+            color: white;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            overflow: hidden;
+        }
+        .container {
+            background: rgba(255, 255, 255, 0.15);
+            padding: 50px;
+            border-radius: 15px;
+            box-shadow: 0px 15px 40px rgba(0, 0, 0, 0.2);
+            animation: fadeIn 1s ease-in-out;
+            backdrop-filter: blur(10px);
+            transition: all 0.5s ease-in-out;
+            position: relative;
+        }
+        .btn {
+            font-size: 20px;
+            padding: 15px 35px;
+            margin: 10px;
+            border: none;
+            cursor: pointer;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+            font-weight: bold;
+        }
+        .btn:hover {
+            transform: scale(1.1);
+        }
+        .yes-btn {
+            background: linear-gradient(135deg, #28a745, #5dd97d);
+            color: white;
+        }
+        .no-btn {
+            background: linear-gradient(135deg, #d32f2f, #ff6b6b);
+            color: white;
+        }
+        .whatsapp-btn {
+            background: linear-gradient(135deg, #25D366, #128C7E);
+            color: white;
+        }
+        h1 {
+            font-size: 3rem;
+            font-family: 'Playfair Display', serif;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .poetry {
+            font-size: 1.8rem;
+            font-style: italic;
+            font-weight: bold;
+            color: #fff;
+            background: rgba(0, 0, 0, 0.3);
+            padding: 15px;
+            border-radius: 10px;
+            margin-top: 20px;
+            max-width: 600px;
+            text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
+            animation: fadeIn 2s ease-in-out infinite alternate;
+        }
+    </style>
+</head>
+<body>
+    <div class="container" id="mainContainer">
+        <h1 id="question">Will You Spend Forever With Me? 💖</h1>
+        <button class="btn yes-btn" onclick="showYesMessage()">YES</button>
+        <button class="btn no-btn" onclick="askAgain()">NO</button>
+        <p id="message" class="fade"></p>
+    </div>
+    
+    <script>
+        let noCount = 0;
+        const messages = [
+            "🥺 Are you sure?", "😢 Think again, my love!", "🤔 What if I cook your favorite meal?",
+            "😞 You mean the world to me!", "🥹 Think about all the happy times we had!", "💔 I’ll always be there for you!",
+            "😭 You complete me!", "🙏 No pressure, but you are my everything!", "💘 Together, we are unstoppable!",
+            "💖 I promise to love you endlessly!", "🌹 Without you, life has no color!", "🎶 Our love is like a beautiful melody!",
+            "💑 I can't imagine a future without you!", "💫 Every love story is special, but ours is my favorite!", "💍 Just say yes, and we make it forever!",
+            "🫂 If love had a face, it would be yours!", "🔥 My love for you burns brighter than the stars!", "🎆 You light up my world!",
+            "💌 Every heartbeat of mine whispers your name!", "💖 My world is incomplete without you!"
+        ];
+
+        function askAgain() {
+            document.getElementById("question").innerText = messages[noCount % messages.length];
+            noCount++;
+        }
+
+        function showYesMessage() {
+            document.getElementById("mainContainer").innerHTML = `
+                <h1>💖 YES! You Said Yes! 💖</h1>
+                <p class="poetry">Our journey begins, hand in hand,<br>Through love so vast, like golden sand.<br>Forever yours, forever mine,<br>In endless time, our souls align.</p>
+                <button class="btn whatsapp-btn" onclick="sendWhatsAppMessage()">Send Response 💬</button>
+            `;
+        }
+
+        function sendWhatsAppMessage() {
+            const message = encodeURIComponent("I said YES! 💖");
+            window.open(`https://wa.me/${+919032381330}?text=${message}`, '_blank');
+        }
+    </script>
+</body>
+</html>
